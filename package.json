@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "discord.js": "^12.4.0",
+    "dotenv": "^8.2.0",
+    "ethers": "^5.5.4",
+    "mongoose": "^6.2.1",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.15"
+  },
+  "scripts": {
+    "start": "node ./app.js",
+    "dev": "nodemon ./app.js"
+  },
+  "name": "teleport-faucet-bot",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT"
+}
