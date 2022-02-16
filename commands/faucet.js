@@ -28,7 +28,7 @@ async function sendDropTo(to_address) {
   try {
     const currentGasPrice = await provider.getGasPrice();
     const gas_limit = 21000;
-    const send_token_amount = '0.01';
+    const send_token_amount = '2';
     const tx_params = {
         from: send_account,
         to: to_address,

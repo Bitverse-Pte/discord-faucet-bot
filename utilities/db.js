@@ -5,7 +5,7 @@ const ObjectId = mongoose.Types.ObjectId;
 
 // TODO: update durations for prod
 // claim test token durations
-const durations = 60; // 24 * 60 * 60
+const durations = 86400; // 24 * 60 * 60
 
 async function findOrCreate(model, searchParameter, document) {
   const modelFound = await mongoose.model(model);
