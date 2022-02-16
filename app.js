@@ -34,6 +34,7 @@ client.on("message", function (message) {
         return
     }
     else if (command === "faucet") {
+        console.log('faucet:', args[0]);
         // TODO: need to check balance
         if (args[0] && args[0].length === 42 && args[0].slice(0, 2) === "0x") {       
             middleware.hasReceivedDrop(message.author, args[0]).then(
