@@ -34,14 +34,14 @@ client.on("message", function (message) {
         return
     }
     else if (command === "faucet") {
-        // need to check balance
+        // TODO: need to check balance
         if (args[0] && args[0].length === 42 && args[0].slice(0, 2) === "0x") {       
             middleware.hasReceivedDrop(message.author, args[0]).then(
                 res => {
-                    // if (!res.canClaim) {
-                    //     botChannel.send(`<@${message.author.id}> You already used the faucet, try agin tomorrow`);
-                    //     return
-                    // }
+                    if (!res.canClaim) {
+                        botChannel.send(`<@${message.author.id}> You already used the faucet, try agin tomorrow`);
+                        return
+                    }
                     sendDrop()
                 }
             )
