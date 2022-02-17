@@ -39,7 +39,7 @@ client.on("message", function (message) {
         if (args[0] && args[0].length === 42 && args[0].slice(0, 2) === "0x") {       
             middleware.hasReceivedDrop(message.author, args[0]).then(
                 res => {
-                    if (!res.canClaim) {
+                    if (!res.canClaim && res._doc.hasReceivedFromFaucet) {
                         botChannel.send(`<@${message.author.id}> You already used the faucet, try agin tomorrow`);
                         return
                     }
@@ -64,8 +64,9 @@ https://evm-explorer.testnet.teleport.network/tx/${obj["hash"]}
                         throw error
                     };
                 }).catch(error => {
+                  console.log('faucet error: ', error);
                   botChannel.send(`<@${message.author.id}> too many requests, please try again`)
-                  middleware.hasReceivedDrop(message.author, args[0])
+                  middleware.dropFailed(message.author);
                   return
                 })
             }
