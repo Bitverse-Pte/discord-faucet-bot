@@ -55,7 +55,7 @@ client.on("message", function (message) {
                     if (obj["hash"]) {
                         botChannel.send(`
                           > <@${message.author.id}>
-                          > send amount: 2 TELE
+                          > send amount: 20 TELE
                           > receiver: ${args[0]}
 https://evm-explorer.testnet.teleport.network/tx/${obj["hash"]}
                         `)
